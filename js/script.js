@@ -22,13 +22,13 @@ document.addEventListener("DOMContentLoaded", function () {
   btnReset.addEventListener("click", function () {
     if (contenu.innerHTML !== "") {
       Game();
-      numberOfPoints = 0;
     } else {
       alert("Vous avez meme pas commencé à jouer vous voulez deja reset !");
     }
   });
 
   function Game() {
+    let numberOfPoints = 0;
     if (contenu.innerHTML !== "") {
       contenu.innerHTML = "";
     }
@@ -64,6 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
             secondCard = null;
             numberOfPoints += 100;
             points.innerHTML = numberOfPoints + " points";
+            checkGameWon();
           } else {
             setTimeout(function () {
               firstCard.classList.remove("active");
@@ -77,6 +78,18 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
     });
+    function checkGameWon() {
+      let foundCards = document.querySelectorAll(".found");
+      if (foundCards.length === 12) {
+        // demander si on veut rejouer
+        let playAgain = confirm("Vous avez gagné ! Voulez-vous rejouer ?");
+        if (playAgain) {
+          Game();
+        } else {
+          alert("Merci d'avoir joué !");
+        }
+      }
+    }
   }
 
   function drawRandomCard() {
