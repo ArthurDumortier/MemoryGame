@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+img {
+  width: 22vw;
+  height: 24vh;
+  margin: 1vw;
+  border: 1px solid black;
+  -webkit-user-drag: none;
+}
+
+img:hover {
+  border: 3px solid black;
+}
+
+.active {
+  border: 3px solid black;
+}
+
+.hidden {
+  content-visibility: hidden;
+}
+
+button {
+  margin: 0.5vw;
+  padding: 0.5vw;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: white;
+  font-weight: bold;
+  align-self: center;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
+}
